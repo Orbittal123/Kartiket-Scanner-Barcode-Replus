@@ -33,7 +33,7 @@ io.sockets.on('connection', (socket) => {
         console.log("getscanBarcode::", barcode);
 
         // Connect to the TCP server and send the barcode
-        client.connect(4000, 'localhost', () => {
+        client.connect(7080, 'localhost', () => {
             console.log('Connected to server');
             var str = "mcode-" + barcode;
             console.log("strrr::",str);
