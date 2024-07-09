@@ -1,10 +1,10 @@
 const net = require("net");
 
 // Define the server address and port
-const HOST_scanner = "192.168.1.110"; // use scanner ip
+const HOST_scanner = "10.5.3.175"; // use scanner ip
 const PORT_scanner = 55256;
 
-const HOST_server = "192.168.1.200"; // use scanner ip
+const HOST_server = "10.5.0.20"; // use scanner ip
 const PORT_server = 7080; // use port
 
 // Create a new TCP client
