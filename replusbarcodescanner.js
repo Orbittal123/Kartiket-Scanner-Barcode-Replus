@@ -1,10 +1,10 @@
 const net = require("net");
 
 // Define the server address and port
-const HOST_scanner = "10.5.3.175"; // use scanner ip
+const HOST_scanner = "10.5.3.175"; // use scanner IP
 const PORT_scanner = 55256;
 
-const HOST_server = "10.5.0.20"; // use scanner ip
+const HOST_server = "10.5.0.20"; // use scanner IP
 const PORT_server = 7080; // use port
 
 // Create a new TCP client
@@ -28,25 +28,21 @@ function connectToServer() {
     const client_server = new net.Socket();
     client_server.connect(PORT_server, HOST_server, () => {
       console.log(`Connected to server: ${HOST_server}:${PORT_server}`);
-      var str = "mcode-" + data;
-      client_server.write(str);
-      console.log("data send to server:::",data);
+
+      // Forward the data directly without adding "mcode-"
+      client_server.write(data);
+      console.log("Data sent to server:::", data);
       client_server.destroy();
-      // Send data to the server
     });
 
     client_server.on("close", () => {
       console.log("Connection closed for server::::");
-      // Retry connection after 5 seconds
     });
 
     // Add an 'error' event handler for the client socket
     client_server.on("error", (err) => {
       console.error("Error: " + err.message);
-      // Retry connection after 5 seconds
     });
-
-    // Close the client socket completely
   });
 
   // Add a 'close' event handler for the client socket
