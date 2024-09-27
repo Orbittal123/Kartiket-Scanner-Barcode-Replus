@@ -8,7 +8,7 @@ const HOST_server = "10.5.0.20"; // use scanner IP
 const PORT_server = 7080; // use port
 
 // Create a new TCP client
-const RETRY_INTERVAL = 5000; // Retry interval in milliseconds
+const RETRY_INTERVAL = 10000; // Retry interval in milliseconds
 
 function connectToServer() {
   const client_scanner = new net.Socket();
